@@ -59,3 +59,7 @@ gem 'nprogress-rails', '~> 0.2.0.2'
 
 #验证码
 gem 'rucaptcha', '~> 0.4.2'
+#表单
+gem 'simple_form', '~> 3.5'
+gem 'client_side_validations', '~> 11.0'
+gem 'client_side_validations-simple_form', '~> 6.5'

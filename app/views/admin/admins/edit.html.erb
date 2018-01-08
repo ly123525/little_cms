@@ -1,0 +1,18 @@
+<div class="page_header">
+  <div class="pull-right">
+    <%= link_to '返回', :back, :class=>'btn btn-default' %>
+  </div>
+  <h4>修改管理员信息</h4>
+</div>
+<div class="row">
+  <div class="col-sm-6">
+    <%= simple_form_for [:admin, @admin], validate: true do |f| %>
+        <%= f.input :name, :label=>'名称' %>
+        <%= f.input :email, :label=>'邮箱', :hint=>'登陆帐号' %>
+        <%=f.input :current_password,:label=>"原密码"%>
+        <%=	 f.input :password, :label=>'新密码' %>
+        <%=	 f.input :password_confirmation, :label=>'确认新密码' %>
+        <%= f.submit '保存', :class=>'btn btn-success btn-sm','data-disable-with' => "请稍后..."  %>
+    <% end %>
+  </div>
+</div>

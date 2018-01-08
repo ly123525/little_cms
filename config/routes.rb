@@ -8,6 +8,7 @@ Rails.application.routes.draw do
     post '/login' => 'sessions#create'
     get '/logout' => 'sessions#destroy'
     post '/verify_rucaptcha' =>'sessions#verify_rucaptcha'
+    resources :admins, :only=>[:edit, :update]
   end
 
 end

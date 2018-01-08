@@ -15,4 +15,5 @@
  *= require nprogress
  *= require nprogress-bootstrap
  *= require admin/base
+ *= require common/animate
  */
