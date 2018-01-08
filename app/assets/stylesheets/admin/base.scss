@@ -1,0 +1,21 @@
+.panel-small{
+  max-width: 300px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 300px;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  box-shadow: 2px 2px 2px #999999;
+  .panel-title{
+    text-align: center;
+  }
+  .rucaptcha-image:hover {
+    cursor: pointer;
+  }
+  .rucaptcha_error_field, .email_error_field, .password_error_field {
+    display: none;
+    color: #B00100;
+  }
+}

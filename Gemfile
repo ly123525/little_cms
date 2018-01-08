@@ -56,3 +56,6 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'bootstrap-sass', '~> 3.3', '>= 3.3.7'
 gem 'font-awesome-rails', '~> 4.7', '>= 4.7.0.2'
 gem 'nprogress-rails', '~> 0.2.0.2'
+
+#验证码
+gem 'rucaptcha', '~> 0.4.2'
