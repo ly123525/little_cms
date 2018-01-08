@@ -1,0 +1,24 @@
+<div class="page_header">
+  <div class="right_buts pull-right">
+    <%= link_to "返回",:back,:class => "btn btn-default btn-sm" %>
+  </div>
+  <h4>编辑系统参数</h4>
+</div>
+
+<%= simple_form_for(@setting, url: admin_setting_path(@setting.var), method: 'patch') do |f| %>
+    <div class="row">
+      <div class="col-sm-6">
+        <%= f.input :value,:input_html=>{:rows=>10},:label=>"<code>#{@setting.var}</code>的值,原来值类型#{@setting.value_type}".html_safe,:hint=>"在输入时请注意类型，HASH类型的参数需要注意其子参数类型.子参数说明请参照右侧说明填写"%>
+        <%= f.input :value_type,:label=>"参数值类型",:collection=>[["字符串","String"],["布尔值（true/false/0/1）","Boolean"],["整数","Integer"],["浮点","Float"],["日期","Date"],["时间","Datetime"],["字符串数组（使用竖线分隔多个字符）","StringArray"],["整形数组（使用竖线分隔多个数字）","IntegerArray"],["HASH对象（属性名使用字符串）","Hash"]],:as=>:radio_buttons %>
+        <%= f.submit "保存", :class => "btn btn-success", :data => {disable_with: "正在保存,请稍后..."} %>
+      </div>
+      <div class="col-sm-6">
+        <h5>参数说明</h5>
+        <div class="well">
+          <%= show_setting_params(@setting.var) %>
+          <%=  %>
+        </div>
+      </div>
+    </div>
+
+<% end %>

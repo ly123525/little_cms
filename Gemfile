@@ -63,3 +63,5 @@ gem 'rucaptcha', '~> 0.4.2'
 gem 'simple_form', '~> 3.5'
 gem 'client_side_validations', '~> 11.0'
 gem 'client_side_validations-simple_form', '~> 6.5'
+# 设置
+gem 'rails-settings-cached', '~> 0.6.6'

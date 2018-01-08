@@ -9,6 +9,11 @@ Rails.application.routes.draw do
     get '/logout' => 'sessions#destroy'
     post '/verify_rucaptcha' =>'sessions#verify_rucaptcha'
     resources :admins, :only=>[:edit, :update]
+    resources :settings do
+      collection do
+        post :update_cache
+      end
+    end
   end
 
 end

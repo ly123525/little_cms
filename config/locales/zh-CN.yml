@@ -1,0 +1,5 @@
+zh-CN:
+  settings:
+    host: 服务器地址
+    site_name: 系统名称
+    default_per_page: 后台书记每页记录数

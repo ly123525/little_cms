@@ -1,0 +1,41 @@
+<div class="page_header">
+  <div class="pull-right">
+    <%= link_to '更新缓存', update_cache_admin_settings_path,:method=> :post, :data=>{disable_with:'正在更新，请稍后...'}, :class=>'btn btn-success btn-sm'  %>
+  </div>
+  <h4>全部参数列表</h4>
+</div>
+<table class="table table-striped table-bordered table-hover">
+  <caption>蓝色高粱现实行表示设置的参数值和内存中正在使用的值不一致，需要清理并更新缓存</caption>
+  <colgroup>
+    <col/>
+    <col width="100" />
+    <col/>
+    <col/>
+    <col width="200"/>
+    <col width="60"/>
+  </colgroup>
+  <thead>
+     <tr>
+       <th>参数名</th>
+       <th>类型</th>
+       <th>值</th>
+       <th>缓存值</th>
+       <th>描述</th>
+       <th>操作</th>
+     </tr>
+  </thead>
+  <tbody>
+  <% @settings.each do |config| %>
+    <tr class="<%= 'info' unless Setting[config[0]]==config[1] %>">
+      <td><code><%= config[0] %></code></td>
+      <td><code><%= config[1].class %></code></td>
+      <td><code><%= config[1] %></code></td>
+      <td><code><%= Setting[config[0]] %></code></td>
+      <td><code><%= t "settings.#{config[0]}" %></code></td>
+      <td>
+        <%= link_to '编辑', edit_admin_setting_path(config[0]),:class => "btn btn-xs btn-link"  %>
+      </td>
+    </tr>
+  <%	end  %>
+  </tbody>
+</table>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180108051143) do
+ActiveRecord::Schema.define(version: 20180108152320) do
 
   create_table "admins", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "email"
@@ -18,6 +18,16 @@ ActiveRecord::Schema.define(version: 20180108051143) do
     t.string   "password_digest"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
+  end
+
+  create_table "settings", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "var",                      null: false
+    t.text     "value",      limit: 65535
+    t.integer  "thing_id"
+    t.string   "thing_type", limit: 30
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+    t.index ["thing_type", "thing_id", "var"], name: "index_settings_on_thing_type_and_thing_id_and_var", unique: true, using: :btree
   end
 
 end
