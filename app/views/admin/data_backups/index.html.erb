@@ -1,0 +1,39 @@
+<div class="page_header">
+  <div class="right_buts pull-right">
+    <%=link_to "立即备份",admin_data_backups_path,:method =>:post,:data=>{disable_with: "正在备份,请稍后..."},:class => "btn btn-success"%>
+  </div>
+  <h4>数据库备份管理</h4>
+</div>
+<table class="table table-bordered table-striped table-hover">
+  <thead>
+  <tr>
+    <th>编号</th>
+    <th>备份文件名</th>
+    <th>文件大小</th>
+    <th>备份时间</th>
+    <th>操作</th>
+  </tr>
+  </thead>
+  <tbody>
+  <% i=1
+      Dir.foreach(@backup_folder) do |filename|
+        if filename != "," and  filename != ".." and filename != ".DS_Store"
+          file= "#{@backup_folder}/#{filename}"
+  %>
+    <tr>
+      <td><%= i %></td>
+      <td><%= File.basename(file) %></td>
+      <td><%= File.size(file) %></td>
+      <td><%= File.atime(file) %></td>
+      <td>
+        <%=link_to "下载",admin_data_backup_path(File.basename(file))%>
+        <%=link_to "删除",admin_data_backup_path(File.basename(file)),:method => :delete,:data=>{:confirm => "确定要删除"}%>
+      </td>
+    </tr>
+  <%
+    i+=1
+    end
+    end
+  %>
+  </tbody>
+</table>

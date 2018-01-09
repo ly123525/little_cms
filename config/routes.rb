@@ -14,6 +14,7 @@ Rails.application.routes.draw do
         post :update_cache
       end
     end
+    resources :data_backups
   end
 
 end
