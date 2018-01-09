@@ -15,6 +15,11 @@ Rails.application.routes.draw do
       end
     end
     resources :data_backups
+    resources :exception_logs,:only=>[:index,:show] do
+      collection do
+        post :delete_all,:delete
+      end
+    end
   end
 
 end

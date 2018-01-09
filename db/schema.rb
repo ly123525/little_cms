@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180108152320) do
+ActiveRecord::Schema.define(version: 20180109060840) do
 
   create_table "admins", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "email"
@@ -18,6 +18,17 @@ ActiveRecord::Schema.define(version: 20180108152320) do
     t.string   "password_digest"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
+  end
+
+  create_table "exception_logs", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "error_class"
+    t.text     "message",     limit: 65535
+    t.text     "backtrace",   limit: 4294967295
+    t.text     "data",        limit: 65535
+    t.text     "request",     limit: 4294967295
+    t.text     "session",     limit: 4294967295
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
   end
 
   create_table "settings", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|

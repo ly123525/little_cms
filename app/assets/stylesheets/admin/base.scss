@@ -80,3 +80,23 @@
   margin-right:auto;
   z-index: 999;
 }
+.empty_data{
+  text-align: center;
+  color: #999999;
+  padding: 30px 0px !important;
+  &:before{
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    transform: translate(0, 0);
+    content: "\f118";
+    display: block;
+    font-size: 60px;
+    color: #CCCCCC;
+  }
+  &:after{
+    content: "Sorry！暂时没有找到符合条件的数据";
+  }
+}

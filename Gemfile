@@ -65,3 +65,9 @@ gem 'client_side_validations', '~> 11.0'
 gem 'client_side_validations-simple_form', '~> 6.5'
 # 设置
 gem 'rails-settings-cached', '~> 0.6.6'
+# 异常记录
+gem 'exception_notification', '~> 4.2', '>= 4.2.2'
+# 分页
+gem 'will_paginate', '~> 3.1', '>= 3.1.6'
+# 搜索表单
+gem 'ransack', '~> 1.8', '>= 1.8.4'

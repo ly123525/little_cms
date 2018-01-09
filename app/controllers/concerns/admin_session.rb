@@ -35,5 +35,10 @@ module Concerns
       @current_admin = nil
     end
 
+   # 跳转到来源页面地址或默认地址
+   def redirect_referrer_or_default(default)
+     redirect_to(request.referrer || default)
+   end
+
   end
 end

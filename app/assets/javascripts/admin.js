@@ -4,4 +4,5 @@
 //= require nprogress
 //= require rails.validations
 //= require rails.validations.simple_form
-//= require application/sessions
+//= require admin/base.js
+//= require admin/sessions.js

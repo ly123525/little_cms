@@ -13,5 +13,6 @@ module LittleCms
     # -- all .rb files in that directory are automatically loaded.
     config.i18n.load_path += Dir[Rails.root.join('my','locales','*.rb{rb,yml}').to_s]
     config.i18n.default_locale = 'zh-CN'
+    config.autoload_paths.push(*%W(#{config.root}/lib))
   end
 end
