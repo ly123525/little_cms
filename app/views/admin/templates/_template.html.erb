@@ -1,0 +1,11 @@
+<tr>
+  <td><%= template.id %></td>
+  <td><%= template.name%></td>
+  <td><%= template.file_name %></td>
+  <td><%= template.content_type_i18n %></td>
+  <td><%= template.created_at.to_formatted_s(:day_time)%></td>
+  <td>
+    <%= link_to '编辑', edit_admin_template_path(template), :class=>'btn btn-link btn-sm' %>
+    <%= link_to '删除', admin_template_path(template), :method=> :delete, :data=>{:confirm=>'确定删除么?'}, :class=>'btn btn-link btn-sm' %>
+  </td>
+</tr>

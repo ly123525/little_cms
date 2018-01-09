@@ -20,6 +20,7 @@ Rails.application.routes.draw do
         post :delete_all,:delete
       end
     end
+    resources :templates
   end
 
 end

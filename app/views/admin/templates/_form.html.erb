@@ -1,0 +1,11 @@
+<%= simple_form_for [:admin,@template], validate: true do |f| %>
+  <div class="row">
+    <div class="col-sm-6">
+      <%= f.input :name, :label=>'模板名称' %>
+      <%= f.input :file_name, :label=>'模板文件名称', :hint=>'请使用英文命名，系统会自动按照输入的文件生成对应的xxx.html.erb模板' %>
+      <%= f.input :content_type, :label=>'模板类型', include_blank: false  %>
+      <%= f.input :content, :label=>'模板代码',:hint=>'该模板为html.erb模板，请正确参照erb模板语法编写', :class=>'codeEdit'   %>
+      <%= f.submit '保存', :class=>'btn btn-success btn-sm', 'data-disable-width'=>'请稍后...'  %>
+    </div>
+  </div>
+<% end %>

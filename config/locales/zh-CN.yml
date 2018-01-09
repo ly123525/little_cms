@@ -3,3 +3,12 @@ zh-CN:
     host: 服务器地址
     site_name: 系统名称
     default_per_page: 后台书记每页记录数
+  enums:
+    template:
+      content_type:
+        welcome_template: 首页模板
+        application_template: 布局模板
+        render_template: 局部模板
+        page_template: 页面模板
+        article_index_template: 文章列表
+        article_show_template: 文章展示

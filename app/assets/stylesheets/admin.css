@@ -14,6 +14,8 @@
  *= require admin_bootstrap
  *= require nprogress
  *= require nprogress-bootstrap
+ *= require codemirror
  *= require admin/base
+ *= require admin/templates
  *= require common/animate
  */
