@@ -16,5 +16,10 @@
 //= require admin/sessions.js
 //= require admin/templates.js
 //= require common/endless_scorlling
-//=  require common/image_change_preview
+//= require common/image_change_preview
+//= require common/simditor/module
+//= require common/simditor/hotkeys
+//= require common/simditor/uploader
+//= require common/simditor/simditor
+//= require admin/pages
 

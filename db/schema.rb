@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180110075101) do
+ActiveRecord::Schema.define(version: 20180110121716) do
 
   create_table "admins", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "email"
@@ -18,6 +18,20 @@ ActiveRecord::Schema.define(version: 20180110075101) do
     t.string   "password_digest"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
+  end
+
+  create_table "attachments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "file"
+    t.integer  "user_id"
+    t.string   "target_type"
+    t.integer  "target_id"
+    t.string   "second_target_type"
+    t.integer  "second_target_id"
+    t.string   "third_target_type"
+    t.integer  "third_target_id"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.index ["user_id"], name: "index_attachments_on_user_id", using: :btree
   end
 
   create_table "exception_logs", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
