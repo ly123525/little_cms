@@ -16,4 +16,5 @@
 //= require admin/sessions.js
 //= require admin/templates.js
 //= require common/endless_scorlling
+//=  require common/image_change_preview
 
