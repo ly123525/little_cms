@@ -1,0 +1,11 @@
+<%= simple_form_for [:admin, @page], validate: true do |f| %>
+  <div class="row">
+    <div class="col-sm-6">
+      <%= f.input :image, :label=>'前导图片',:input_html=> {:accept=>'image/png, image/git, image/jpeg, image/jpg'} %>
+      <%= f.input :name, :label=>'名称' %>
+      <%= f.input :scope, :collection=> Page.page_templates, :label=>'模板'  %>
+      <%= f.input :content, :label=>'内容' %>
+      <%= f.submit '保存', :class=>'btn btn-success btn-sm', 'data-disable-width'=>'请稍后...' %>
+    </div>
+  </div>
+<% end %>

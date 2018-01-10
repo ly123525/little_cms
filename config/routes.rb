@@ -21,6 +21,7 @@ Rails.application.routes.draw do
       end
     end
     resources :templates
+    resources :pages
   end
 
 end
