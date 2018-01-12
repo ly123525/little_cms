@@ -1,4 +1,4 @@
-<%= simple_form_for [:admin, @page] do |f| %>
+<%= simple_form_for [:admin, @page], validate: true do |f| %>
   <div class="row">
     <div class="col-sm-6">
       <%= f.input :image,as: :image_preview,
