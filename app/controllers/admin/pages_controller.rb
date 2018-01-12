@@ -9,7 +9,7 @@ before_action :set_page, :only=>[:edit, :update, :destroy]
   end
 
   def create
-    @page = Page.new(params[:page].permit!)
+    @page = Page.new(page_params)
     if @page.save
       redirect_to admin_pages_url, :notice=>'创建成功！'
     else
@@ -21,7 +21,7 @@ before_action :set_page, :only=>[:edit, :update, :destroy]
   end
 
   def update
-    if @page.update(params[:page].permit!)
+    if @page.update(page_params)
       redirect_to admin_pages_url, :notice=> '编辑成功！'
     else
       render :edit
@@ -38,4 +38,10 @@ before_action :set_page, :only=>[:edit, :update, :destroy]
   def set_page
     @page = Page.find(params[:id])
   end
+
+  def page_params
+    params.require(:page).permit(:name, :content, :image, :scope,
+                                 seos_attributes:[:id, :seo_title, :seo_keywords, :seo_description, :_destroy] )
+  end
+
 end

@@ -1,4 +1,4 @@
-<%= simple_form_for [:admin, @page], validate: true do |f| %>
+<%= simple_form_for [:admin, @page] do |f| %>
   <div class="row">
     <div class="col-sm-6">
       <%= f.input :image,as: :image_preview,
@@ -25,14 +25,15 @@
           </tr>
           </thead>
           <tbody id="values_box">
-          <%=	f.simple_fields_for :seo do |seo|  %>
+          <!--TODO: cocoon 对has_one不好用！ update时不能删除seo-->
+          <%=	f.simple_fields_for :seos do |seo|  %>
             <%= render 'seo_fields', f:seo %>
           <% end %>
           </tbody>
           <tfoot>
           <tr>
             <td colspan="4" class="text-center">
-              <%= link_to_add_association "添加SEO", f, :seo, :class => "btn btn-sm btn-success", :data => {"association-insertion-node" => "#values_box", "association-insertion-method" => "append"} %>
+              <%= link_to_add_association "添加SEO", f, :seos, :class => "btn btn-sm btn-success", :data => {"association-insertion-node" => "#values_box", "association-insertion-method" => "append"} %>
             </td>
           </tr>
           </tfoot>
