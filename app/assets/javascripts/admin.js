@@ -4,6 +4,7 @@
 //= require nprogress
 //= require rails.validations
 //= require rails.validations.simple_form
+//= require cocoon
 
 //= require codemirror
 //= require codemirror/modes/xml

@@ -1,0 +1,16 @@
+<tr class="nested-fields">
+  <td>
+    <%= f.input :seo_title, :label=>false, :placeholder=>'SEO标题'  %>
+  </td>
+  <td>
+    <%= f.input :seo_description , :label=>false, :placeholder=>'SEO描述'%>
+  </td>
+  <td>
+    <%= f.input :seo_keywords, :label=>false, :placeholder=>'SEO关键字' %>
+  </td>
+  <td>
+    <%= link_to_remove_association f,:class=>"btn btn-link btn-sm" do %>
+        <i class="fa fa-trash-o"></i>
+    <%end %>
+  </td>
+</tr>

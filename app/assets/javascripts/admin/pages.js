@@ -11,6 +11,17 @@
                 fileKey: "attachment[file]",
                 connectionCount: 1
             }
-        })
+        });
+
+    });
+    //seo
+    $(function(){
+        $('#values_box').on('cocoon:after-insert',function(){
+            if($('.nested-fields').length==1){
+                $('.add_fields').hide();
+            }
+        }).on('cocoon:after-remove',function(){
+            $('.add_fields').show();
+        });
     });
 })(jQuery);

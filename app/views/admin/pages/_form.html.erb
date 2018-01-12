@@ -10,6 +10,34 @@
                   :validate=>false %>
       <%= f.input :name, :label=>'名称' %>
       <%= f.input :scope, :collection=> Page.page_templates, :label=>'模板'  %>
+      <div class="form-table">
+        <table class="table">
+          <col/>
+          <col/>
+          <col/>
+          <col/>
+          <thead>
+          <tr>
+          <th>SEO标题</th>
+          <th>SEO关键词</th>
+          <th>SEO描述</th>
+          <th>操作</th>
+          </tr>
+          </thead>
+          <tbody id="values_box">
+          <%=	f.simple_fields_for :seo do |seo|  %>
+            <%= render 'seo_fields', f:seo %>
+          <% end %>
+          </tbody>
+          <tfoot>
+          <tr>
+            <td colspan="4" class="text-center">
+              <%= link_to_add_association "添加SEO", f, :seo, :class => "btn btn-sm btn-success", :data => {"association-insertion-node" => "#values_box", "association-insertion-method" => "append"} %>
+            </td>
+          </tr>
+          </tfoot>
+        </table>
+      </div>
       <%= f.input :content, :label=>'内容' %>
       <%= f.submit '保存', :class=>'btn btn-success btn-sm', 'data-disable-width'=>'请稍后...' %>
     </div>

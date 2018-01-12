@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180110121716) do
+ActiveRecord::Schema.define(version: 20180112060339) do
 
   create_table "admins", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "email"
@@ -55,6 +55,16 @@ ActiveRecord::Schema.define(version: 20180110121716) do
     t.datetime "updated_at",               null: false
     t.index ["scope"], name: "index_pages_on_scope", using: :btree
     t.index ["slug"], name: "index_pages_on_slug", using: :btree
+  end
+
+  create_table "seos", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "seoable_id"
+    t.string   "seoable_type"
+    t.string   "seo_title"
+    t.string   "seo_description"
+    t.string   "seo_keywords"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
   end
 
   create_table "settings", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
