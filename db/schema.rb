@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180114085605) do
+ActiveRecord::Schema.define(version: 20180114103137) do
 
   create_table "admins", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "email"
@@ -39,6 +39,28 @@ ActiveRecord::Schema.define(version: 20180114085605) do
     t.index ["scope_index"], name: "index_article_categories_on_scope_index", using: :btree
     t.index ["scope_show"], name: "index_article_categories_on_scope_show", using: :btree
     t.index ["slug"], name: "index_article_categories_on_slug", using: :btree
+  end
+
+  create_table "articles", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "article_category_id"
+    t.string   "title"
+    t.string   "subtitle"
+    t.string   "author"
+    t.string   "image"
+    t.integer  "position",                          default: 0
+    t.text     "content",             limit: 65535
+    t.boolean  "is_hot",                            default: false
+    t.string   "slug"
+    t.integer  "scope_index"
+    t.integer  "scope_show"
+    t.datetime "created_at",                                        null: false
+    t.datetime "updated_at",                                        null: false
+    t.index ["article_category_id"], name: "index_articles_on_article_category_id", using: :btree
+    t.index ["is_hot"], name: "index_articles_on_is_hot", using: :btree
+    t.index ["position"], name: "index_articles_on_position", using: :btree
+    t.index ["scope_index"], name: "index_articles_on_scope_index", using: :btree
+    t.index ["scope_show"], name: "index_articles_on_scope_show", using: :btree
+    t.index ["slug"], name: "index_articles_on_slug", using: :btree
   end
 
   create_table "attachments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|

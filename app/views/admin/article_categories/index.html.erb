@@ -28,11 +28,11 @@
             <td class="tree_name">
               <%= ("<span class='tree_prefix'></span>" * cate.level).html_safe %>
               <i class="fa fa-folder-open"></i>
-              <%= link_to cate.name%>
+              <%= link_to cate.name, admin_article_category_articles_path(cate) %>
             </td>
             <td> <%= strip_tags(cate.description) %></td>
             <td>
-              <%= link_to "#{cate.articles_count} 个" %></td>
+              <%= link_to "#{cate.articles_count} 个", admin_article_category_articles_path(cate) %></td>
             <td>
               <%= link_to "编辑", edit_admin_article_category_path(cate)%>
               <%= link_to "删除", admin_article_category_path(cate), :method => :delete, :data => {:confirm => "确定要删除?如果有子分类将同步删除子分类,分类下的文章将失去类别"} %>

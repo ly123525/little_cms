@@ -1,5 +1,5 @@
 class ArticleCategory < ApplicationRecord
-
+  has_many :articles, :dependent => :destroy
   acts_as_nested_set
   mount_uploader :image, PageUploader
   validates :name, :presence => true

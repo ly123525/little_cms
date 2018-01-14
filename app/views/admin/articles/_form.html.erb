@@ -1,0 +1,26 @@
+<%= simple_form_for [:admin,@article_category,@article] do |f| %>
+    <div class="row">
+      <div class="col-sm-6">
+        <%= f.input :image,as: :image_preview,
+                    :label=>'前导图片',
+                    :preview_version=>:small,
+                    :change_preview=>true,
+                    :wrapper=>:image_preview,
+                    :input_html=>{:accept=>"image/png,image/gif,image/jpeg,image/jpg"} %>
+        <%= f.input :title, :label=>'标题' %>
+        <%= f.input :subtitle, :label=>'副标题' %>
+        <%= f.input :author, :label=>'作者' %>
+        <%= f.input :position, :label=>'顺序' %>
+        <%= f.input :scope_show, :collection=>Article.show_templates, :label=>'文章展示模板', :hint=>'如果不选择,默认为文章分类选择的模板' %>
+        <%= f.input :is_hot, :label=>'热门' %>
+        <%= f.simple_fields_for :seo do |seo| %>
+            <%= seo.input :seo_title, :label=>'SEO标题' %>
+            <%= seo.input :seo_keywords, :label=>'SEO关键字' %>
+            <%= seo.input :seo_description, :label=>'SEO描述' %>
+        <% end %>
+        <%= f.input :content, :label=>'内容' %>
+        <%= f.submit '保存', :class=>'btn btn-success btn-sm', 'data-distable-width'=>'请稍后...' %>
+      </div>
+    </div>
+<% end %>
+

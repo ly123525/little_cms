@@ -22,8 +22,8 @@
 //= require common/simditor/hotkeys
 //= require common/simditor/uploader
 //= require common/simditor/simditor
-//= require common/simditor/underscore
-//= require common/simditor/backbone
+//= require common/underscore
+//= require common/backbone
 //= require admin/pages
 //= require admin/article_categories
 

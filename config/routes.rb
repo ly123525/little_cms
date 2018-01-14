@@ -29,7 +29,11 @@ Rails.application.routes.draw do
     resources :templates
     resources :pages
     resources :article_categories do
-      resources :articles
+      resources :articles do
+        collection do
+          post :update_position
+        end
+      end
     end
   end
 

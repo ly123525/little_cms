@@ -1,7 +1,7 @@
 class Admin::ArticleCategoriesController < Admin::BaseController
 before_action :set_article_category, :only=>[:edit, :update, :destroy]
   def index
-    @article_categories = ArticleCategory.order(id: :desc).paginate(:page=>params[:page], :per_page=>Setting['default_per_page'])
+    @article_categories = ArticleCategory.nested_set_scope
   end
 
   def new
@@ -11,7 +11,6 @@ before_action :set_article_category, :only=>[:edit, :update, :destroy]
 
   def create
     @article_category = ArticleCategory.new(params[:article_category].permit!)
-    @seo = @article_category.build_seo
     if @article_category.save
       redirect_to admin_article_categories_url, :notice=>'创建成功！'
     else
@@ -20,12 +19,11 @@ before_action :set_article_category, :only=>[:edit, :update, :destroy]
   end
 
   def edit
-    @seo = @article_category.build_seo
+     @seo=@article_category.seo
   end
 
   def update
-    @seo = @article_category.build_seo
-    if @article_category.update(params[:article_category].permit!)
+    if @article_category.update(set_category_params)
       redirect_to admin_article_categories_url, :notice=>'编辑成功！'
     else
       render :edit
@@ -41,5 +39,11 @@ before_action :set_article_category, :only=>[:edit, :update, :destroy]
   private
   def set_article_category
     @article_category = ArticleCategory.find(params[:id])
+  end
+
+  def set_category_params
+    params.require(:article_category).permit(:parent_id, :image, :name, :scope_index,
+                                             :scope_index, :scope_show,
+                                              seo_attributes:[:id, :seo_title, :seo_keywords, :seo_description, :_destroy])
   end
 end
