@@ -28,6 +28,9 @@ Rails.application.routes.draw do
     end
     resources :templates
     resources :pages
+    resources :article_categories do
+      resources :articles
+    end
   end
 
 end

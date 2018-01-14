@@ -1,0 +1,23 @@
+<%= simple_form_for [:admin,@article_category], validate: true do |f| %>
+    <div class="row">
+      <div class="col-sm-6">
+        <%= f.input :parent_id,:collection=>nested_set_options(ArticleCategory) {|i| "#{'-' * i.level} #{i.name}"},:prompt=>"顶级分类",:label=>"父级分类"%>
+        <%= f.input :image,as: :image_preview,
+                    :label=>'前导图片',
+                    :preview_version=>:small,
+                    :change_preview=>true,
+                    :wrapper=>:image_preview,
+                    :input_html=>{:accept=>"image/png,image/gif,image/jpeg,image/jpg"} %>
+        <%= f.input :name, :label=>'名称' %>
+        <%= f.input :scope_index, :collection=> ArticleCategory.index_templates, :label=>'文章列表模板', :hint=>'如不选择则为默认模板' %>
+        <%= f.input :scope_show, :collection=>ArticleCategory.show_templates, :label=>'文章展示模板', :hint=>'如不选择则为默认模板' %>
+        <%= f.simple_fields_for :seo do |seo| %>
+            <%= seo.input :seo_title, :label=>'SEO标题' %>
+            <%= seo.input :seo_keywords, :label=>'SEO关键字' %>
+            <%= seo.input :seo_description, :label=>'SEO描述' %>
+        <% end %>
+        <%= f.input :description, :label=>'描述' %>
+        <%= f.submit '保存', :class=>'btn btn-success btn-sm', 'data-distable-width'=>'请稍后...' %>
+      </div>
+    </div>
+<% end %>

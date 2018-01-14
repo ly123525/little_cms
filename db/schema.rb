@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180112060339) do
+ActiveRecord::Schema.define(version: 20180114085605) do
 
   create_table "admins", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "email"
@@ -18,6 +18,27 @@ ActiveRecord::Schema.define(version: 20180112060339) do
     t.string   "password_digest"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
+  end
+
+  create_table "article_categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "name"
+    t.string   "image"
+    t.integer  "articles_count",               default: 0
+    t.text     "description",    limit: 65535
+    t.string   "slug"
+    t.integer  "position",                     default: 0
+    t.integer  "scope_index"
+    t.integer  "scope_show"
+    t.integer  "parent_id"
+    t.integer  "lft"
+    t.integer  "rgt"
+    t.datetime "created_at",                               null: false
+    t.datetime "updated_at",                               null: false
+    t.index ["parent_id"], name: "index_article_categories_on_parent_id", using: :btree
+    t.index ["position"], name: "index_article_categories_on_position", using: :btree
+    t.index ["scope_index"], name: "index_article_categories_on_scope_index", using: :btree
+    t.index ["scope_show"], name: "index_article_categories_on_scope_show", using: :btree
+    t.index ["slug"], name: "index_article_categories_on_slug", using: :btree
   end
 
   create_table "attachments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
